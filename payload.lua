@@ -23,4 +23,4 @@ client:on('messageCreate', function(message)
     end
 end)
 
-client:run('Mjg1MjY2NTg4MjYzNzc2MjU4.C5PqvA.niPUsBIJ4iH54DSxB2JVKpVcYUc')
+client:run('bot-token')
