@@ -1,2 +1,2 @@
 # SpamBot
-A Discord Bot programmed it lua
+A Discord Bot programmed in lua
