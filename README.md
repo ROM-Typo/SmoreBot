@@ -1,2 +1,2 @@
-# SpamBot
-A Discord Bot programmed in lua
+# SmoreBot
+A Discord Bot that gives attention to Smore Pop Tarts that happens to be programmed in lua using Discordia
