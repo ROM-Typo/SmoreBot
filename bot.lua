@@ -2,9 +2,15 @@ local discordia = require('discordia')
 local client = discordia.Client()
 
 client:on('ready', function()
-    print('Logged in as '.. client.user.username)
+    print('Booting SmoreOS 1.0')
+	print('Connecting to Discord Servers')
+end)
+	
+client:on('ready', function()
+    print('Logged in as User: '.. client.user.username)
 end)
 
+--Commands
 client:on('messageCreate', function(message)
 	-- exit early if the author is the same as the client
 	if message.author == client.user then return end
@@ -29,15 +35,28 @@ client:on('messageCreate', function(message)
     end
 	
 	if message.content == '<quote' then
-        message.channel:sendMessage('If the word “hacking” was replaced with “guess your password” more people would probably use two factor authentication.')
+        message.channel:sendMessage('Someone could unlock my phone with my fingerprint while I was asleep and I would never know')
 		print("<quote command was used")
 	end
+		
+	if message.content == '<censor' then
+		message.channel:sendMessage(string.format('Now Starting: Censorship SubRoutine, Started By ``User: %s``', message.author.username))
+		print("<censor command was used")
+	end
 	
---Help command
+	if message.content == '<fail' then
+		message.author:sendMessage(string.format('Get a Life %s', message.author.username))
+	end
 
+--Help command
 	if message.content == '<help' then
-        message.channel:sendMessage([[
-**Command List**```
+		message.channel:sendMessage('Help Sent! :mailbox_with_mail:') 
+	end
+	
+	if message.content == '<help' then
+	message.author:sendMessage([[
+**Command List**
+```
 <memez - shows you the memes
 <ping - pings the bot
 <smore - shows you some poptarts
@@ -45,6 +64,7 @@ client:on('messageCreate', function(message)
 <help - this message
 <censor - starts the censorship subroutine
 <join - some important links , also if you say SmoreBot you can talk to the bot
+<fail - insults you in DMs
 ```
 ]])
 	print("<help command was used")
@@ -52,23 +72,18 @@ client:on('messageCreate', function(message)
 
 --Bot Adding Info	
 	if message.content == '<join' then
-        message.channel:sendMessage('```here is the link to add the bot: https://discordapp.com/oauth2/authorize?client_id=283064956205793280&scope=bot here is the link to our dev/updates server: https://discord.me/spambot```')
+        message.channel:sendMessage('```here is the link to add the bot:``` https://discordapp.com/oauth2/authorize?&client_id=290228059599142913&scope=bot&permissions=0 ```here is the link to our dev/updates server:``` https://discord.me/smorebot')
 		print("<join command was used")   
 	end
 	
 --Lolz
 	if message.content == 'Chronomly6' then
-		message.author:sendMessage(string.format('DONT MENTION MY OWNER, %s!!', message.author.username))
+		message.author:sendMessage(string.format('`DONT MENTION MY OWNER, %s!!`', message.author.username))
     end
 
 	if message.content == 'SmoreBot' then
 		message.channel:sendMessage(string.format('Hey, %s, how are you?', message.author.username))
-	end
-	
-	if message.content == '<censor' then
-		message.channel:sendMessage(string.format('Now Starting: Censorship SubRoutine, Started By ``User: %s``', message.author.username))
-		print("<censor command was used")
-	end
+	end	
 
 	
 end)
