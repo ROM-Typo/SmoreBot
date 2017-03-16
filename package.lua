@@ -2,7 +2,7 @@ local discordia = require('discordia')
 local client = discordia.Client()
 
 client:on('ready', function()
-    print('Booting SmoreOS 1.0')
+    print('Booting SmoreOS 2.0')
 	print('Connecting to Discord Servers')
 end)
 	
@@ -46,7 +46,17 @@ client:on('messageCreate', function(message)
 	
 	if message.content == '<fail' then
 		message.author:sendMessage(string.format('Get a Life %s', message.author.username))
+		print("<fail was used")
 	end
+	
+	if message.content == '<log' then
+		message.channel:sendMessage('`Error 0.1= "message not found"`')
+	end
+
+	if message.content == '<uptime' then
+		message.channel:sendMessage('?!uptime <@290228059599142913>')
+	end
+
 
 --Help command
 	if message.content == '<help' then
@@ -62,9 +72,10 @@ client:on('messageCreate', function(message)
 <smore - shows you some poptarts
 <quote - a quote from https://www.reddit.com/r/Showerthoughts/
 <help - this message
-<censor - starts the censorship subroutine
+<censor - starts the censorship subroutine - DOES NOTHING
 <join - some important links , also if you say SmoreBot you can talk to the bot
 <fail - insults you in DMs
+<log - should print the bot's logs
 ```
 ]])
 	print("<help command was used")
@@ -76,15 +87,6 @@ client:on('messageCreate', function(message)
 		print("<join command was used")   
 	end
 	
---Lolz
-	if message.content == 'Chronomly6' then
-		message.author:sendMessage(string.format('`DONT MENTION MY OWNER, %s!!`', message.author.username))
-    end
-
-	if message.content == 'SmoreBot' then
-		message.channel:sendMessage(string.format('Hey, %s, how are you?', message.author.username))
-	end	
-
 	
 end)
 
