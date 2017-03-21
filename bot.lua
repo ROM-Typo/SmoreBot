@@ -3,6 +3,7 @@
 --Proprietary and confidential
 --Thanks for Using SmoreBot
 
+ 
 local discordia = require('discordia')
 local client = discordia.Client()
 
@@ -30,7 +31,7 @@ client:on('messageCreate', function(message)
 	end
 
     if message.content == '<smore' then
-        message.channel:sendMessage('https://static1.squarespace.com/static/553b26fde4b08ceb08a4242c/553b2823e4b0eb3719c6d635/553b2835e4b0eb3719c7cbb3/1277100054042/1000w/smorepoptart.jpg')
+        message.channel:sendMessage('https://www.poptarts.com/content/NorthAmerica/pop_tarts/en_US/pages/flavors/bakery/frosted-s-mores-toaster-pastries/jcr:content/productContent/par/responsiveimage.img.png/1475703429032.png')
 		print("<smore command was used")
     end
 	
@@ -40,7 +41,7 @@ client:on('messageCreate', function(message)
     end
 	
 	if message.content == '<quote' then
-        message.channel:sendMessage('Someone could unlock my phone with my fingerprint while I was asleep and I would never know')
+        message.channel:sendMessage('Start using "At the turn of the century" when describing something that happened to you around 1999/2000')
 		print("<quote command was used")
 	end
 		
@@ -51,17 +52,12 @@ client:on('messageCreate', function(message)
 	
 	if message.content == '<fail' then
 		message.author:sendMessage(string.format('Get a Life %s', message.author.username))
-		print("<fail was used")
+		print("<fail command was used")
 	end
 	
 	if message.content == '<log' then
-		message.channel:sendMessage('`Error 0.1= "message not found"`')
+		message.channel:sendMessage('`Error 5 = "log.txt not found"`')
 	end
-
-	if message.content == '<uptime' then
-		message.channel:sendMessage('?!uptime <@290228059599142913>')
-	end
-
 
 --Help command
 	if message.content == '<help' then
@@ -81,14 +77,32 @@ client:on('messageCreate', function(message)
 <join - some important links , also if you say SmoreBot you can talk to the bot
 <fail - insults you in DMs
 <log - should print the bot's logs
+<partners - dm's you a list of discord servers partnered with SmoreBot!
 ```
 ]])
-	print("<help command was used")
+		print("<help command was used")
     end	
 
---Bot Adding Info	
+--Partner's Command
+	if message.content == '<partners' then
+		message.channel:sendMessage('List Sent! :mailbox_with_mail:') 
+	end
+	
+	if message.content == '<partners' then
+		message.author:sendMessage([[
+**Partner List**
+```
+Snowy and Friends - Our First Partnered Server! - https://discord.gg/Y4T38F7
+Coder Lounge - Main Dev's Server - https://discord.gg/XCmxErJ
+Project Placeholder5 - A Server About Stuff - https://discord.gg/V2b5e6p
+```
+]])
+		print("<partners command was used")
+    end	
+	
+--Bot Adding Info
 	if message.content == '<join' then
-        message.channel:sendMessage('```here is the link to add the bot:``` https://discordapp.com/oauth2/authorize?&client_id=290228059599142913&scope=bot&permissions=0 ```here is the link to our dev/updates server:``` https://discord.me/smorebot')
+        message.channel:sendMessage('```here is the link to add the bot:``` https://discordapp.com/oauth2/authorize?&client_id=290228059599142913&scope=bot&permissions=0 ```here is the link to our website:``` http://www.smorebot.tk')
 		print("<join command was used")   
 	end
 	
