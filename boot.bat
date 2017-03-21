@@ -1,3 +1,3 @@
 :start
-luvit payload.lua
+luvit bot.lua
 goto start
