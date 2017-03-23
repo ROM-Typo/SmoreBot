@@ -1,9 +1,3 @@
---Copyright (C) Chronomly6 - All Rights Reserved
---Unauthorized copying of this file, via any medium is strictly prohibited
---Proprietary and confidential
---Thanks for Using SmoreBot
-
- 
 local discordia = require('discordia')
 local client = discordia.Client()
 
