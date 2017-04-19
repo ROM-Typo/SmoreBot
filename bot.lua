@@ -357,5 +357,7 @@ end
 end)
 local f = io.open("LOGIN_TOKEN", "rb")
     local content = f:read("*all")
+local token = string.gsub(content, "%s+", "")
     f:close()
-client:run(content)
+print(token)
+client:run(token)
