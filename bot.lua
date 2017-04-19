@@ -28,7 +28,7 @@ client:on('messageCreate', function(message)
 	end
 
 	if cmd == "<test>" then
-	   message.channel:sendMessage("TEST COMMAND version #2")
+	   message.channel:sendMessage("TEST COMMAND version #3\n Third time's a charm")
 	end
     if cmd == '<host' then
 local handle = io.popen("hostname")
