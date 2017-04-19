@@ -1,4 +1,4 @@
 :start
-luvit bot.lua
+luvit bot_beta.lua
 pause
 goto start
