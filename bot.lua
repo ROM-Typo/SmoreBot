@@ -9,21 +9,6 @@ client:on('ready', function()
 	end
 end)
 
-    public static int Bots(Guild guild)
-    {
-        List<Member> users = guild.getMembers();
-        int bot = 0;
-        for(int i = 0; i < users.size(); i++)
-        {
-            Member user = users.get(i);
-            if(user.getUser().isBot())
-            {
-                bot++;
-            }
-        }
-        return bot;
-    }
-
 --Dev Var
 dev = "251383432331001856"
 dev2 = "250432205145243649"
@@ -343,11 +328,27 @@ end
 	end
 	
 	if cmd == '<spawn' then
-		message.channel:sendMessage('```Chronomly has given up on music: please add ShellShock here:``` http://romtypo.com/bots/helix ```Or FireTrap here:``` https://goo.gl/SDbmyW')
+		spawn = arg
 	end
 	
 	if cmd == '<play' then
-		message.channel:sendMessage('```Chronomly has given up on music: please add ShellShock here:``` http://romtypo.com/bots/helix ```Or FireTrap here:``` https://goo.gl/SDbmyW')
+			local channel = client:getVoiceChannel(spawn)
+	if channel == nil then
+	do return end
+	end
+	local connection = channel:join()
+	if arg == nil then
+	do return end
+	end
+	coroutine.wrap(function()
+		connection:playFile(arg)
+		message.channel:sendMessage('Done streaming!')
+		print('Done streaming!')
+	end)()
+	message.channel:sendMessage('Audio is streaming!')
+	print(string.format("]play command was used by %s", message.author.id))
+	print(string.format('Audio is streaming!'))
+	print(string.format(arg))
 	end
 
 	
