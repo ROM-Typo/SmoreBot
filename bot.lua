@@ -58,6 +58,9 @@ end
 	end
 	
 	if cmd == '<fail' then
+		if arg == nil then
+		channel:sendMessage(string.format()"<@%s>, You are a very stupid creature, you know that? I dont even know why i put up with your bs, i may as well just fucking ignore everything you say. Yeah i should fucking do that... Wait thats too harsh isnt it? Right let me explainl; you're supposed to tag someone else with this command. Understand now? Good.", message.author.id)
+		end
 		message.channel:sendMessage(string.format('%s, you clearly havent been burdened by the overobundence of education have you?', arg))
 		print(string.format('<fail command was used by %s', message.author.id))
 	end
