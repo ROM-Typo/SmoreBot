@@ -9,21 +9,6 @@ client:on('ready', function()
 	end
 end)
 
-    public static int Bots(Guild guild)
-    {
-        List<Member> users = guild.getMembers();
-        int bot = 0;
-        for(int i = 0; i < users.size(); i++)
-        {
-            Member user = users.get(i);
-            if(user.getUser().isBot())
-            {
-                bot++;
-            }
-        }
-        return bot;
-    }
-
 --Dev Var
 dev = "251383432331001856"
 dev2 = "250432205145243649"
