@@ -34,6 +34,14 @@ handle:close()
 message.channel:sendMessage(string.format("I am hosted on `%s`",result))
 end
 
+if cmd == '<update' then
+local handle = io.popen("git pull origin master")
+local result = handle:read("*a")
+handle:close()
+message.channel:sendMessage(string.format("```\n%s\n```",result))
+client:stop(true)
+end
+
     if cmd == '<smore' then
         message.channel:sendMessage('https://www.poptarts.com/content/NorthAmerica/pop_tarts/en_US/pages/flavors/bakery/frosted-s-mores-toaster-pastries/jcr:content/productContent/par/responsiveimage.img.png/1475703429032.png')
 		print(string.format('<smore command was used by %s', message.author.id))
