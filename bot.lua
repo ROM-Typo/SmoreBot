@@ -27,6 +27,9 @@ client:on('messageCreate', function(message)
 		print(string.format('<ping command was used by %s', message.author.id))
 	end
 
+	if cmd == "<test>" then
+	   message.channel:sendMessage("TEST COMMAND")
+	end
     if cmd == '<host' then
 local handle = io.popen("hostname")
 local result = handle:read("*a")
