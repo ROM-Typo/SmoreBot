@@ -27,6 +27,13 @@ client:on('messageCreate', function(message)
 		print(string.format('<ping command was used by %s', message.author.id))
 	end
 
+    if cmd == '<host' then
+local handle = io.popen("hostname")
+local result = handle:read("*a")
+handle:close()
+message.channel:sendMessage(string.format("I am hosted on `%s`",result))
+end
+
     if cmd == '<smore' then
         message.channel:sendMessage('https://www.poptarts.com/content/NorthAmerica/pop_tarts/en_US/pages/flavors/bakery/frosted-s-mores-toaster-pastries/jcr:content/productContent/par/responsiveimage.img.png/1475703429032.png')
 		print(string.format('<smore command was used by %s', message.author.id))
