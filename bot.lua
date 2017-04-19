@@ -353,4 +353,9 @@ end
 
 	
 end)
-client:run('bot-token')
+local f = io.open("LOGIN_TOKEN", "rb")
+    local content = f:read("*all")
+local token = string.gsub(content, "%s+", "")
+    f:close()
+print(token)
+client:run(token)
