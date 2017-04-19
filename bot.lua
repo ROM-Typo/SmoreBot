@@ -72,6 +72,7 @@ end
 	
 --Echo Command
 	if cmd == '<echo' then
+	if arg == nil then return end
 		message.channel:sendMessage(arg)
 		print(string.format('<echo command was used by %s to say', message.author.id))
 	end
