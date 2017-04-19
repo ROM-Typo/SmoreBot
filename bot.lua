@@ -38,10 +38,7 @@ message.channel:sendMessage(string.format("I am hosted on `%s`",result))
 end
 
 if cmd == '<update' then
-local handle = io.popen("git pull origin master")
-local result = handle:read("*a")
-handle:close()
-message.channel:sendMessage(string.format("```\n%s\n```",result))
+message.channel:sendMessage(":wave:")
 client:stop(true)
 end
 
