@@ -212,19 +212,7 @@ end
 }
     end
 
---Dev Commands
-	if cmd == '<exec' then
-	if message.author.id == dev then
-	os.execute(arg)
-		end
-	end
-	
-	if cmd == '<exec' then 
-	if message.author.id == dev then
-		message.channel:sendMessage('Executed: ')message.channel:sendMessage(arg)
-		end
-	end
-	
+--Dev Commands	
 	if cmd == '<leaveserver' then
 	if message.author.id == dev then
 	local guild = client:getGuild(arg)
