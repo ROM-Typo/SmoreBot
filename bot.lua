@@ -122,7 +122,9 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 <game - sets the bots playing status
 <announce (text) - announces something in #announcecements
 <leaveserver (id) - leaves the server
-<exec (cmd command) - main dev only]], inline = true},
+<exec (cmd command) - main dev only
+<update - grabs changes from github
+<test> - a test>]], inline = true},
     },
     color = discordia.Color(114, 137, 218).value,
     timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
@@ -156,7 +158,9 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 <game - sets the bots playing status
 <announce (text) - announces something in #announcecements
 <leaveserver (id) - leaves the server
-<exec (cmd command) - main dev only]], inline = true},
+<exec (cmd command) - main dev only
+<update - grabs changes from github
+<test> - a test>]], inline = true},
     },
     color = discordia.Color(114, 137, 218).value,
     timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
