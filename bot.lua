@@ -53,7 +53,8 @@ end
     end
 	
 	if cmd == '<quote' then
-        message.channel:sendMessage('If my dog is actually effective at keeping burglars away when I am not home I would never know it.')
+        message.channel:sendMessage([[**fam i am a profeshanl factorio player**
+**automate EVRYTHING**]])
 		print(string.format('<quote command was used by %s', message.author.id))
 	end
 	
@@ -105,7 +106,7 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 <memez - shows you the memes
 <ping - pings the bot
 <smore - shows you some poptarts
-<quote - a quote from https://www.reddit.com/r/Showerthoughts/
+<quote - a quote from jdenderplays
 <help - this message
 <fail - insults you in DMs
 <partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
@@ -141,7 +142,7 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 <memez - shows you the memes
 <ping - pings the bot
 <smore - shows you some poptarts
-<quote - a quote from https://www.reddit.com/r/Showerthoughts/
+<quote - a quote from jdenderplays
 <help - this message
 <fail - insults you in DMs
 <partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
