@@ -54,7 +54,7 @@ end
 	
 	if cmd == '<quote' then
         message.channel:sendMessage([[**fam i am a profeshanl factorio player**
-**automate EVRYTHING**]])
+**automate EVRYTHING** -Jdenderplays 2017]])
 		print(string.format('<quote command was used by %s', message.author.id))
 	end
 	
