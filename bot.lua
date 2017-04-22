@@ -59,7 +59,8 @@ end
     end
 	
 	if cmd == '<quote' then
-        message.channel:sendMessage('If my dog is actually effective at keeping burglars away when I am not home I would never know it.')
+        message.channel:sendMessage([[**fam i am a profeshanl factorio player**
+**automate EVRYTHING** -Jdenderplays 2017]])
 		print(string.format('<quote command was used by %s', message.author.id))
 	end
 	
@@ -78,6 +79,7 @@ end
 	
 --Echo Command
 	if cmd == '<echo' then
+	if arg == nil then return end
 		message.channel:sendMessage(arg)
 		print(string.format('<echo command was used by %s to say', message.author.id))
 	end
@@ -110,7 +112,7 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 <memez - shows you the memes
 <ping - pings the bot
 <smore - shows you some poptarts
-<quote - a quote from https://www.reddit.com/r/Showerthoughts/
+<quote - a quote from jdenderplays
 <help - this message
 <fail - insults you in DMs
 <partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
@@ -146,7 +148,7 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 <memez - shows you the memes
 <ping - pings the bot
 <smore - shows you some poptarts
-<quote - a quote from https://www.reddit.com/r/Showerthoughts/
+<quote - a quote from jdenderplays
 <help - this message
 <fail - insults you in DMs
 <partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
@@ -217,19 +219,7 @@ end
 }
     end
 
---Dev Commands
-	if cmd == '<exec' then
-	if message.author.id == dev then
-	os.execute(arg)
-		end
-	end
-	
-	if cmd == '<exec' then 
-	if message.author.id == dev then
-		message.channel:sendMessage('Executed: ')message.channel:sendMessage(arg)
-		end
-	end
-	
+--Dev Commands	
 	if cmd == '<leaveserver' then
 	if message.author.id == dev then
 	local guild = client:getGuild(arg)
