@@ -6,7 +6,13 @@ client:on('ready', function()
 	print('Printing Server List:')
 		for guild in client.guilds do
 		print(guild.name)
-	end
+end
+local f = io.open("DEFAULT_GAME", "rb")
+    local content = f:read("*all")
+local game = string.gsub(content, "%s+", "")
+    f:close()
+client:setGameName(game)
+	
 end)
 
 --Dev Var
@@ -360,5 +366,4 @@ local f = io.open("LOGIN_TOKEN", "rb")
     local content = f:read("*all")
 local token = string.gsub(content, "%s+", "")
     f:close()
-print(token)
 client:run(token)
