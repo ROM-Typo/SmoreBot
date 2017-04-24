@@ -19,6 +19,8 @@ end)
 dev = "251383432331001856"
 dev2 = "250432205145243649"
 
+ROMTYPO = "186295030388883456"
+
 --Commands
 client:on('messageCreate', function(message)
 	-- exit early if the author is the same as the client
@@ -244,7 +246,7 @@ end
 	end
 	
 	if cmd == '<game' then
-		if message.author.id == dev then
+		if message.author.id == dev or message.author.id == ROMTYPO then
 			client:setGameName(arg)
 			print('<game command was used')
 		end
