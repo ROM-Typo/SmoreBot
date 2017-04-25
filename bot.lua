@@ -211,7 +211,7 @@ end
     end
 
 --Dev Commands	
-	if cmd == "<test>" then
+	if cmd == "<test" then
 	   message.channel:sendMessage("TEST COMMAND version #3\n Third time's a charm\nnvm it isn't (#4)")
 	end
 	
@@ -254,20 +254,8 @@ end
 	
 	if cmd == '<game' then
 		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
-			client:setGameName(arg)
+			client:setGameName(arg)message.channel:sendMessage('Set "playing status" to:')message.channel:sendMessage(arg)
 			print('<game command was used')
-		end
-	end
-	
-	if cmd == '<game' then
-		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
-			message.channel:sendMessage('Set "playing status" to:')
-		end
-	end
-	
-	if cmd == '<game' then
-		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
-			message.channel:sendMessage(arg)
 		end
 	end
 	
