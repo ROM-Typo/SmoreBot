@@ -156,8 +156,13 @@ if cmd == '<help' then
 <leaveserver (id) - leaves the server
 <update - grabs changes from github
 <test> - a test>]], inline = true},
-    },
+	},
+	color = discordia.Color(114, 137, 218).value,
+    timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
+	}
+	}
 	print(string.format('a dev used <help, known as %s', message.author.id))
+	end
 end
 --Partners Command
 	if cmd == '<partners' then
