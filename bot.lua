@@ -16,10 +16,10 @@ client:setGameName(game)
 end)
 
 --Dev Var
-dev = "251383432331001856"
-dev2 = "250432205145243649"
-
+CHRONOMLY = "251383432331001856"
+JDENDER = "250432205145243649"
 ROMTYPO = "186295030388883456"
+SPACEX = "220568440161697792"
 
 --Commands
 client:on('messageCreate', function(message)
@@ -34,21 +34,6 @@ client:on('messageCreate', function(message)
         message.channel:sendMessage(':ping_pong: pong!')
 		print(string.format('<ping command was used by %s', message.author.id))
 	end
-
-	if cmd == "<test>" then
-	   message.channel:sendMessage("TEST COMMAND version #3\n Third time's a charm\nnvm it isn't (#4)")
-	end
-    if cmd == '<host' then
-local handle = io.popen("hostname")
-local result = handle:read("*a")
-handle:close()
-message.channel:sendMessage(string.format("I am hosted on `%s`",result))
-end
-
-if cmd == '<update' then
-message.channel:sendMessage(":wave:")
-client:stop(true)
-end
 
     if cmd == '<smore' then
         message.channel:sendMessage('https://www.poptarts.com/content/NorthAmerica/pop_tarts/en_US/pages/flavors/bakery/frosted-s-mores-toaster-pastries/jcr:content/productContent/par/responsiveimage.img.png/1475703429032.png')
@@ -109,7 +94,7 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
   embed = {
     title = "Command List",
         fields = {
-      {name = "here is the link to add the bot: ", value = [[
+      {name = "Main Commands", value = [[
 <echo (text) - says what you say where it says "text"
 <memez - shows you the memes
 <ping - pings the bot
@@ -123,15 +108,6 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 <info - some info about the bot
 <bug (the issue, server invite link) - please attach a invite link to the bug!]], inline = true},
       {name = "Music", value = "Sorry, cancelled", inline = true},
-      {name = "Dev Commands", value = [[
-<sendall - sends a message to every server the bot is in
-<reboot - reboots the bot ;)
-<game - sets the bots playing status
-<announce (text) - announces something in #announcecements
-<leaveserver (id) - leaves the server
-<exec (cmd command) - main dev only
-<update - grabs changes from github
-<test> - a test>]], inline = true},
     },
     color = discordia.Color(114, 137, 218).value,
     timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
@@ -145,7 +121,7 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
   embed = {
     title = "Command List",
         fields = {
-      {name = "here is the link to add the bot: ", value = [[
+      {name = "Main Commands", value = [[
 <echo (text) - says what you say where it says "text"
 <memez - shows you the memes
 <ping - pings the bot
@@ -159,21 +135,29 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 <info - some info about the bot
 <bug (the issue, server invite link) - please attach a invite link to the bug!]], inline = true},
       {name = "Music", value = "Sorry, cancelled", inline = true},
-      {name = "Dev Commands", value = [[
-<sendall - sends a message to every server the bot is in
-<reboot - reboots the bot ;)
-<game - sets the bots playing status
-<announce (text) - announces something in #announcecements
-<leaveserver (id) - leaves the server
-<exec (cmd command) - main dev only
-<update - grabs changes from github
-<test> - a test>]], inline = true},
-    },
+	  },
     color = discordia.Color(114, 137, 218).value,
     timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
   }
 }
 print(string.format('<help command was used by %s', message.author.id))
+end
+if cmd == '<help' then
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+    message.author:sendMessage{
+  embed = {
+    title = "Command List",
+        fields = {
+{name = "Dev Commands", value = [[
+<sendall - sends a message to every server the bot is in
+<reboot - reboots the bot ;)
+<game - sets the bots playing status
+<announce (text) - announces something in #announcecements
+<leaveserver (id) - leaves the server
+<update - grabs changes from github
+<test> - a test>]], inline = true},
+    },
+	print(string.format('a dev used <help, known as %s', message.author.id))
 end
 --Partners Command
 	if cmd == '<partners' then
@@ -185,7 +169,7 @@ end
 		**Partner List**
 		```
 		Snowy and Friends - Our First Partnered Server! - https://discord.gg/Y4T38F7
-		Coder Lounge - Main Dev's Server - https://discord.gg/XCmxErJ
+		Coder Lounge - Chronomly6's Server - https://discord.gg/XCmxErJ
 		Project Placeholder5 - IDK WHAT THIS PLACE IS - https://discord.gg/ZtgQ62X
 		Chillax Zone - A pretty chill server - https://discord.gg/YabxP6P
 		Fun Message Lite - a chill and chat server - discord.gg/hVDzyZd
@@ -222,22 +206,40 @@ end
     end
 
 --Dev Commands	
+	if cmd == "<test>" then
+	   message.channel:sendMessage("TEST COMMAND version #3\n Third time's a charm\nnvm it isn't (#4)")
+	end
+	
+    if cmd == '<host' then
+		local handle = io.popen("hostname")
+		local result = handle:read("*a")
+		handle:close()
+		message.channel:sendMessage(string.format("I am hosted on `%s`",result))
+	end
+
+	if cmd == '<update' then
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+		message.channel:sendMessage(":wave:")
+		client:stop(true)
+		end
+	end
+	
 	if cmd == '<leaveserver' then
-	if message.author.id == dev then
-	local guild = client:getGuild(arg)
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+		local guild = client:getGuild(arg)
 		guild:leave()
 		end
 	end
 
 	if cmd == '<announce' then 
-	if message.author.id == dev then
+	if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 		local channel = client:getTextChannel("282977399761666059")
 		channel:sendMessage('**MESSAGE FROM THE DEVS**')channel:sendMessage(arg)
 		end
 	end
 	
 	if cmd == '<sendall' then
-		if message.author.id == dev then
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 		for guild in client.guilds do
 		guild.defaultChannel:sendMessage(arg)
 		print('Message Sent to all servers')
@@ -246,26 +248,26 @@ end
 	end
 	
 	if cmd == '<game' then
-		if message.author.id == dev or message.author.id == ROMTYPO then
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			client:setGameName(arg)
 			print('<game command was used')
 		end
 	end
 	
 	if cmd == '<game' then
-		if message.author.id == dev then
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			message.channel:sendMessage('Set "playing status" to:')
 		end
 	end
 	
 	if cmd == '<game' then
-		if message.author.id == dev then
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			message.channel:sendMessage(arg)
 		end
 	end
 	
 	if message.content == '<reboot' then
-		if message.author.id == dev then
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 		message.channel:sendMessage(':wave: BRB!')
 		client:stop(true)
 		end
@@ -273,28 +275,23 @@ end
 	
 	
 	if cmd == '<guildlist' then
-		if message.author.id == dev then
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			for guild in client.guilds do
 			message.channel:sendMessage(guild.name)
 			end
-		if arg == 'id' then 
-		for guild in client.guilds do
-			message.channel:sendMessage(guild.id)
-			end
-		end
 		end
 	end
 	
 	
 	if cmd == '<upvoteme' then
-		if message.author.id == dev then
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			message:addReaction("👍")
 		end
 	end
 	
 --If User is not dev
 	if cmd == '<game' then
-		if message.author.id ~= dev then
+		if message.author.id ~= CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
 			print(string.format('%s tried to use <game to set', message.author.id))
 			print(arg)
@@ -302,7 +299,7 @@ end
 	end
 	
 	if cmd == '<sendall' then
-		if message.author.id ~= dev  then
+		if message.author.id ~= CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
 			print(string.format('%s tried to use <sendall to send', message.author.id))
 			print(arg)
@@ -310,14 +307,14 @@ end
 	end
 	
 	if message.content == '<reboot' then
-		if message.author.id ~= dev  then
+		if message.author.id ~= CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
 			print(string.format('%s tried to use <reboot', message.author.id)) 
 		end
 	end
 	
 	if cmd == '<announce' then
-		if message.author.id ~= dev  then
+		if message.author.id ~= CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
 			print(string.format('%s tried to use <announce to send', message.author.id))
 			print(arg)
@@ -325,7 +322,7 @@ end
 	end
 	
 	if message.content == '<leaveserver' then
-		if message.author.id ~= dev  then
+		if message.author.id ~= CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
 			print(string.format('%s tried to use <leaveserver', message.author.id)) 
 		end
