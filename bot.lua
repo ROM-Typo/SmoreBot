@@ -68,11 +68,7 @@ client:on('messageCreate', function(message)
 	if cmd == '<echo' then
 	if arg == nil then return end
 		message.channel:sendMessage(arg)
-		print(string.format('<echo command was used by %s to say', message.author.id))
-	end
-	
-	if cmd == '<echo' then
-		print(arg)
+		print(string.format('<echo command was used by %s to say', message.author.id))print(arg)
 	end
 	
 --Info Command
@@ -85,12 +81,8 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 	end
 	
 --Help Command
-	if cmd == '<help' then
-		message.channel:sendMessage('Help Sent! :mailbox_with_mail:') 
-	end
-	
 	if cmd == '<@290228059599142913>' then
-	message.author:sendMessage{
+	message.channel:sendMessage('Help Sent! :mailbox_with_mail:')message.author:sendMessage{
   embed = {
     title = "Command List",
         fields = {
@@ -117,7 +109,7 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
     end	
 	
 	if cmd == '<help' then
-    message.author:sendMessage{
+    message.channel:sendMessage('Help Sent! :mailbox_with_mail:')message.author:sendMessage{
   embed = {
     title = "Command List",
         fields = {
@@ -146,9 +138,9 @@ if cmd == '<help' then
 		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
     message.author:sendMessage{
   embed = {
-    title = "Command List",
+    title = "Dev Commands",
         fields = {
-{name = "Dev Commands", value = [[
+{name = "List", value = [[
 <sendall - sends a message to every server the bot is in
 <reboot - reboots the bot ;)
 <game - sets the bots playing status
@@ -166,11 +158,7 @@ if cmd == '<help' then
 end
 --Partners Command
 	if cmd == '<partners' then
-		message.channel:sendMessage('List Sent! :mailbox_with_mail:') 
-	end
-	
-	if cmd == '<partners' then
-		message.author:sendMessage([[
+		message.channel:sendMessage('List Sent! :mailbox_with_mail:')message.author:sendMessage([[
 		**Partner List**
 		```
 		Snowy and Friends - Our First Partnered Server! - https://discord.gg/Y4T38F7
@@ -284,7 +272,7 @@ end
 	
 --If User is not dev
 	if cmd == '<game' then
-		if message.author.id ~= CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
 			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
 			print(string.format('%s tried to use <game to set', message.author.id))
 			print(arg)
@@ -292,7 +280,7 @@ end
 	end
 	
 	if cmd == '<sendall' then
-		if message.author.id ~= CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
 			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
 			print(string.format('%s tried to use <sendall to send', message.author.id))
 			print(arg)
@@ -300,14 +288,14 @@ end
 	end
 	
 	if message.content == '<reboot' then
-		if message.author.id ~= CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
 			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
 			print(string.format('%s tried to use <reboot', message.author.id)) 
 		end
 	end
 	
 	if cmd == '<announce' then
-		if message.author.id ~= CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
 			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
 			print(string.format('%s tried to use <announce to send', message.author.id))
 			print(arg)
@@ -315,7 +303,7 @@ end
 	end
 	
 	if message.content == '<leaveserver' then
-		if message.author.id ~= CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
 			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
 			print(string.format('%s tried to use <leaveserver', message.author.id)) 
 		end
