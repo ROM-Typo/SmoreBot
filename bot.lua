@@ -200,7 +200,7 @@ end
 
 --Dev Commands	
 	if cmd == "<test" then
-	   message.channel:sendMessage("TEST COMMAND version #3\n Third time's a charm\nnvm it isn't (#4)")
+	   message.channel:sendMessage("TEST COMMAND version #3\n Third time's a charm\nnvm it isn't #4\n test command v5")
 	end
 	
     if cmd == '<host' then
@@ -212,7 +212,7 @@ end
 
 	if cmd == '<update' then
 		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
-		message.channel:sendMessage(":wave:")
+		message.channel:sendMessage(":wave: grabbing from github!")
 		client:stop(true)
 		end
 	end
