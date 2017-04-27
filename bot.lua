@@ -187,7 +187,7 @@ end
   embed = {
     title = "Here are some important links",
 	    fields = {
-      {name = "here is the link to add the bot: ", value = "https://goo.gl/QpEHyl", inline = true},
+      {name = "here is the link to add the bot: ", value = "https://discordapp.com/oauth2/authorize?client_id=290228059599142913&scope=bot&permissions=2146958463", inline = true},
       {name = "here is the link to our website: ", value = "http://www.chronomly6.tk/smorebot.html", inline = true},
 	  {name = "here is a link to our support/updates discord:", value = "https://discord.gg/6P6MNAU", inline = true},
       {name = "Our official Twitter:", value = "https://twitter.com/smorebtofficial", inline = true},
