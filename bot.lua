@@ -203,6 +203,30 @@ end
 	   message.channel:sendMessage("TEST COMMAND version #3\n Third time's a charm\nnvm it isn't #4\n test command v5")
 	end
 	
+	if cmd == '<kick' then
+    if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+        local id = arg:match('<@!?([0-9]+)>')
+          if id then
+		  user = client:getUser(id)
+            message.guild:kickUser(user)
+            message.channel:sendMessage(string.format('SUMMONING THE KICK HAMMER ON: %s', id))
+            print(string.format('<kick command was used by %s', message.author.id))
+			end
+		end
+    end
+	
+	if cmd == '<ban' then
+    if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+        local id = arg:match('<@!?([0-9]+)>')
+          if id then
+		  user = client:getUser(id)
+            message.guild:banUser(user)
+            message.channel:sendMessage(string.format('SUMMONING THE BAN HAMMER ON: %s', id))
+            print(string.format('<ban command was used by %s', message.author.id))
+			end
+		end
+	end
+	
     if cmd == '<host' then
 		local handle = io.popen("hostname")
 		local result = handle:read("*a")
