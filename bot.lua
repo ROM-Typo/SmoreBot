@@ -30,6 +30,13 @@ client:on('messageCreate', function(message)
 	local cmd, arg = message.content:match('(%S+)%s+(.*)')
 	cmd = cmd or message.content
 	
+	if cmd == '<rip' then
+		local channel = client:getVoiceChannel(message.member.voiceChannel.id)
+		local connection = channel:join()
+		local generator = sine(arg, 1) -- freq in Hz, amplitude 0 to 1
+		connection:playWaveform(generator, 3000) -- duration in ms
+	end
+	
 	if cmd == '<ping' then
         message.channel:sendMessage(':ping_pong: pong!')
 		print(string.format('<ping command was used by %s', message.author.id))
@@ -94,7 +101,8 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 <quote - a quote from jdenderplays
 <help - this message
 <fail - insults you in DMs
-<partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
+<partners - dm's you a list of discord servers partnered with SmoreBot!
+<rip (number) - destroys your ears]], inline = true},
       {name = "Bot Info & <bug", value = [[
 <join - some important links
 <info - some info about the bot
@@ -121,7 +129,8 @@ I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chro
 <quote - a quote from jdenderplays
 <help - this message
 <fail - insults you in DMs
-<partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
+<partners - dm's you a list of discord servers partnered with SmoreBot!
+<rip (number) - destroys your ears]], inline = true},
       {name = "Bot Info & <bug", value = [[
 <join - some important links
 <info - some info about the bot
@@ -161,7 +170,6 @@ end
 		message.channel:sendMessage('List Sent! :mailbox_with_mail:')message.author:sendMessage([[
 		**Partner List**
 		```
-		Snowy and Friends - Our First Partnered Server! - https://discord.gg/Y4T38F7
 		Coder Lounge - Chronomly6's Server - https://discord.gg/XCmxErJ
 		Project Placeholder5 - IDK WHAT THIS PLACE IS - https://discord.gg/ZtgQ62X
 		Chillax Zone - A pretty chill server - https://discord.gg/YabxP6P
