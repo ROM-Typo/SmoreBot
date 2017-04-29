@@ -15,6 +15,20 @@ client:setGameName(game)
 	
 end)
 
+local rate = 48000
+	local maxint16 = 32767
+
+local function sine(freq, amp)
+	local h = freq * 2 * math.pi / rate
+	local a = amp * maxint16
+	local t = 0
+	return function()
+		local s = math.sin(t) * a
+		t = t + h
+		return s, s -- left, right
+	end
+end
+
 --Dev Var
 CHRONOMLY = "251383432331001856"
 JDENDER = "250432205145243649"
@@ -29,13 +43,6 @@ client:on('messageCreate', function(message)
 	-- split the message content into a command and everything else
 	local cmd, arg = message.content:match('(%S+)%s+(.*)')
 	cmd = cmd or message.content
-	
-	if cmd == '<rip' then
-		local channel = client:getVoiceChannel(message.member.voiceChannel.id)
-		local connection = channel:join()
-		local generator = sine(arg, 1) -- freq in Hz, amplitude 0 to 1
-		connection:playWaveform(generator, 3000) -- duration in ms
-	end
 	
 	if cmd == '<ping' then
         message.channel:sendMessage(':ping_pong: pong!')
