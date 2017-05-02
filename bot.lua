@@ -71,7 +71,7 @@ client:on('messageCreate', function(message)
 		channel:sendMessage(string.format('`Insert Mention Here` , User: %s reported:', message.author.username));
 		channel:sendMessage(arg);
 		channel:sendMessage('https://discord.gg/' .. invite.code)
-		print(string.format('s.bug command was used by %s to say', message.author.id))print(arg))
+		print(string.format('s.bug command was used by %s to say', message.author.id)) print(arg)
 	end
 	
 --Echo Command
