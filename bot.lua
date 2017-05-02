@@ -67,8 +67,8 @@ client:on('messageCreate', function(message)
 		local maxUses = 1
 		local maxAge = 1800 
 		local invite = message.channel:createInvite(maxAge, maxUses)
-		--<@&294883525881102336>
-		channel:sendMessage(string.format('`Insert Mention Here` , User: %s reported:', message.author.username));
+		
+		channel:sendMessage(string.format('<@&294883525881102336> %s reported:', message.author.username));
 		channel:sendMessage(arg);
 		channel:sendMessage('https://discord.gg/' .. invite.code)
 		print(string.format('s.bug command was used by %s to say', message.author.id)) print(arg)
