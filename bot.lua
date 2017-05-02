@@ -51,8 +51,8 @@ client:on('messageCreate', function(message)
     end
 	
 	if cmd == (string.format(prefix .. 'quote')) then
-        message.channel:sendMessage([[**fam i am a profeshanl factorio player**
-**automate EVRYTHING** -Jdenderplays 2017]])
+        message.channel:sendMessage([[`print(print`
+-Chronomly6 2017]])
 		print(string.format('<quote command was used by %s', message.author.id))
 	end
 	
@@ -71,7 +71,7 @@ client:on('messageCreate', function(message)
 		channel:sendMessage(string.format('`Insert Mention Here` , User: %s reported:', message.author.username));
 		channel:sendMessage(arg);
 		channel:sendMessage('https://discord.gg/' .. invite.code)
-		print(print(string.format('s.bug command was used by %s to say', message.author.id))print(arg))
+		(print(string.format('s.bug command was used by %s to say', message.author.id))print(arg))
 	end
 	
 --Echo Command
