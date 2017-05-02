@@ -64,9 +64,14 @@ client:on('messageCreate', function(message)
 --Bug Command
 	if cmd == (string.format(prefix .. 'bug')) then 
 		local channel = client:getTextChannel("296030986708451328")
-		channel:sendMessage(string.format('<@&294883525881102336> , User: %s reported:', message.author.username))channel:sendMessage(arg)
-		print(string.format('<bug was used by %s', message.author.id))
-		print('to report:', arg)
+		local maxUses = 1
+		local maxAge = 1800 
+		local invite = message.channel:createInvite(maxAge, maxUses)
+		--<@&294883525881102336>
+		channel:sendMessage(string.format('`Insert Mention Here` , User: %s reported:', message.author.username));
+		channel:sendMessage(arg);
+		channel:sendMessage('https://discord.gg/' .. invite.code)
+		print(print(string.format('s.bug command was used by %s to say', message.author.id))print(arg))
 	end
 	
 --Echo Command
