@@ -25,6 +25,11 @@ CHRONOMLY = "251383432331001856"
 JDENDER = "250432205145243649"
 ROMTYPO = "186295030388883456"
 SPACEX = "220568440161697792"
+--TechTeam Var
+KAYDAX = "142782417994907648"
+PUFFLE = "201389895694942210"
+STAR = "156019409658314752"
+ORANGE = "269543926803726336"
 
 --Commands
 client:on('messageCreate', function(message)
@@ -51,8 +56,8 @@ client:on('messageCreate', function(message)
     end
 	
 	if cmd == (string.format(prefix .. 'quote')) then
-        message.channel:sendMessage([[`print(print`
--Chronomly6 2017]])
+        message.channel:sendMessage([[**fam i am a profeshanl factorio player**
+**automate EVRYTHING** -Jdenderplays 2017]])
 		print(string.format('<quote command was used by %s', message.author.id))
 	end
 	
@@ -67,11 +72,18 @@ client:on('messageCreate', function(message)
 		local maxUses = 1
 		local maxAge = 1800 
 		local invite = message.channel:createInvite(maxAge, maxUses)
-		
-		channel:sendMessage(string.format('<@&294883525881102336> %s reported:', message.author.username));
+		channel:sendMessage(string.format('In %s', guild.name))
+		channel:sendMessage(string.format('<@&294883525881102336> , User: %s reported:', message.author.username));
 		channel:sendMessage(arg);
 		channel:sendMessage('https://discord.gg/' .. invite.code)
-		print(string.format('s.bug command was used by %s to say', message.author.id)) print(arg)
+		print(string.format('s.bug command was used by %s to say', message.author.id))print(arg)
+	end
+
+	if cmd == (string.format(prefix .. 'clearbug')) then 
+	if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX or message.author.id == KAYDAX  or message.author.id == PUFFLE  or message.author.id == STAR or message.author.id == ORANGE then
+		local channel = client:getTextChannel("296030986708451328")
+		channel:sendMessage(string.format(message.author.username,'cleared a bug in %s', guild.name))
+		end
 	end
 	
 --Echo Command
@@ -369,6 +381,7 @@ end
 
 	
 end)
+
 local f = io.open("LOGIN_TOKEN", "rb")
     local content = f:read("*all")
 local token = string.gsub(content, "%s+", "")
