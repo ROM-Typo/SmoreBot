@@ -40,7 +40,7 @@ client:on('messageCreate', function(message)
 	-- split the message content into a command and everything else
 	local cmd, arg = message.content:match('(%S+)%s+(.*)')
 	cmd = cmd or message.content
-	
+
 	if cmd == (string.format(prefix .. 'ping')) then 
         message.channel:sendMessage(':ping_pong: pong!')
 		print(string.format('<ping command was used by %s', message.author.id))
@@ -78,7 +78,8 @@ client:on('messageCreate', function(message)
 			local maxUses = 1
 			local maxAge = 1800 
 			local invite = message.channel:createInvite(maxAge, maxUses)
-			channel:sendMessage(string.format('<@&294883525881102336> , In %s', message.guild.name .. ' User: %s reported:', message.author.username));
+			channel:sendMessage(string.format('<@&294883525881102336> , In %s', message.guild.name)); 
+			channel:sendMessage(string.format(' User: %s reported:', message.author.username));
 			channel:sendMessage(arg);
 			channel:sendMessage('Invite: https://discord.gg/' .. invite.code)
 			print(string.format('s.bug command was used by %s to say', message.author.id))print(arg)
@@ -125,18 +126,18 @@ I am a Discord Bot made in **Lua** using **Discordia**, I am developed by Chrono
     title = "Command List",
         fields = {
       {name = "Main Commands", value = [[
-<echo (text) - says what you say where it says "text"
-<memez - shows you the memes
-<ping - pings the bot
-<smore - shows you some poptarts
-<quote - a quote from jdenderplays
-<help - this message
-<fail - insults you in DMs
-<partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
+s.echo (text) - says what you say where it says "text"
+s.memez - shows you the memes
+s.ping - pings the bot
+s.smore - shows you some poptarts
+s.quote - a quote from jdenderplays
+s.help - this message
+s.fail - insults you in DMs
+s.partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
       {name = "Bot Info & <bug", value = [[
-<join - some important links
-<info - some info about the bot
-<bug (the issue, server invite link) - please attach a invite link to the bug!]], inline = true},
+s.join - some important links
+s.info - some info about the bot
+s.bug (the issue) - Reports a bug - help will come as soon as the team can.]], inline = true},
       {name = "Music", value = "Sorry, cancelled", inline = true},
     },
     color = discordia.Color(114, 137, 218).value,
@@ -152,18 +153,18 @@ I am a Discord Bot made in **Lua** using **Discordia**, I am developed by Chrono
     title = "Command List",
         fields = {
       {name = "Main Commands", value = [[
-<echo (text) - says what you say where it says "text"
-<memez - shows you the memes
-<ping - pings the bot
-<smore - shows you some poptarts
-<quote - a quote from jdenderplays
-<help - this message
-<fail - insults you in DMs
-<partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
+s.echo (text) - says what you say where it says "text"
+s.memez - shows you the memes
+s.ping - pings the bot
+s.smore - shows you some poptarts
+s.quote - a quote from jdenderplays
+s.help - this message
+s.fail - insults you in DMs
+s.partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
       {name = "Bot Info & <bug", value = [[
-<join - some important links
-<info - some info about the bot
-<bug (the issue, server invite link) - please attach a invite link to the bug!]], inline = true},
+s.join - some important links
+s.info - some info about the bot
+s.bug (the issue) - Reports a bug - help will come as soon as the team can.]], inline = true},
       {name = "Music", value = "Sorry, cancelled", inline = true},
 	  },
     color = discordia.Color(114, 137, 218).value,
@@ -179,15 +180,15 @@ if cmd == (string.format(prefix .. 'help')) then
     title = "Dev Commands",
         fields = {
 {name = "List", value = [[
-<sendall - sends a message to every server the bot is in
-<reboot - reboots the bot ;)
-<game - sets the bots playing status
-<announce (text) - announces something in #announcecements
-<leaveserver (id) - leaves the server
-<update - grabs changes from github
-<test> - a test>
-<ban - what you think it does
-<kick - what you think it does]], inline = true},
+s.sendall - sends a message to every server the bot is in
+s.reboot - reboots the bot ;)
+s.game - sets the bots playing status
+s.announce (text) - announces something in #announcecements
+s.leaveserver (id) - leaves the server
+s.update - grabs changes from github
+s.test> - a test>
+s.ban - what you think it does
+s.kick - what you think it does]], inline = true},
 	},
 	color = discordia.Color(114, 137, 218).value,
     timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
