@@ -80,9 +80,11 @@ client:on('messageCreate', function(message)
 	end
 
 	if cmd == (string.format(prefix .. 'clearbug')) then 
-	if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX or message.author.id == KAYDAX  or message.author.id == PUFFLE  or message.author.id == STAR or message.author.id == ORANGE then
-		local channel = client:getTextChannel("296030986708451328")
-		channel:sendMessage(string.format(message.author.username,'cleared a bug in %s', guild.name))
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX or message.author.id == KAYDAX  or message.author.id == PUFFLE  or message.author.id == STAR or message.author.id == ORANGE then
+			local channel = client:getTextChannel("296030986708451328")
+			channel:sendMessage(string.format(message.author.username .. ' cleared a bug in %s', message.guild.name));
+			channel:sendMessage(string.format('with the reason, %s', arg))
+			print(string.format('s.clearbug command was used by %s with the reason,', message.author.id))print(arg)
 		end
 	end
 	
