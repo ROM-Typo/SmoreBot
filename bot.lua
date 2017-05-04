@@ -26,6 +26,7 @@ JDENDER = "250432205145243649"
 ROMTYPO = "186295030388883456"
 SPACEX = "220568440161697792"
 --TechTeam Var
+serverbug = 0
 KAYDAX = "142782417994907648"
 PUFFLE = "201389895694942210"
 STAR = "156019409658314752"
@@ -68,23 +69,36 @@ client:on('messageCreate', function(message)
 	
 --Bug Command
 	if cmd == (string.format(prefix .. 'bug')) then 
-		local channel = client:getTextChannel("296030986708451328")
-		local maxUses = 1
-		local maxAge = 1800 
-		local invite = message.channel:createInvite(maxAge, maxUses)
-		channel:sendMessage(string.format('In %s', guild.name))
-		channel:sendMessage(string.format('<@&294883525881102336> , User: %s reported:', message.author.username));
-		channel:sendMessage(arg);
-		channel:sendMessage('https://discord.gg/' .. invite.code)
-		print(string.format('s.bug command was used by %s to say', message.author.id))print(arg)
+		if serverbug == 1 then
+			message.channel:sendMessage('Someone already reported a bug in this server please wait for a dev to clear it.')
+		end
+		if serverbug == 0 then
+			message.channel:sendMessage('Bug reported. A helpful person will join your server to help soon')
+			local channel = client:getTextChannel("296030986708451328")
+			local maxUses = 1
+			local maxAge = 1800 
+			local invite = message.channel:createInvite(maxAge, maxUses)
+			channel:sendMessage(string.format('<@&294883525881102336> , In %s', message.guild.name .. ' User: %s reported:', message.author.username));
+			channel:sendMessage(arg);
+			channel:sendMessage('Invite: https://discord.gg/' .. invite.code)
+			print(string.format('s.bug command was used by %s to say', message.author.id))print(arg)
+			serverbug = 1
+		end
 	end
 
 	if cmd == (string.format(prefix .. 'clearbug')) then 
-		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX or message.author.id == KAYDAX  or message.author.id == PUFFLE  or message.author.id == STAR or message.author.id == ORANGE then
-			local channel = client:getTextChannel("296030986708451328")
-			channel:sendMessage(string.format(message.author.username .. ' cleared a bug in %s', message.guild.name));
-			channel:sendMessage(string.format('with the reason, %s', arg))
-			print(string.format('s.clearbug command was used by %s with the reason,', message.author.id))print(arg)
+		if serverbug == 0 then
+			message.channel:sendMessage('No bug to clear :face_palm:')
+		end
+		if serverbug == 1 then
+			if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX or message.author.id == KAYDAX  or message.author.id == PUFFLE  or message.author.id == STAR or message.author.id == ORANGE then
+				message.channel:sendMessage(':thumbsup:')
+				local channel = client:getTextChannel("296030986708451328")
+				channel:sendMessage(string.format(message.author.username .. ' cleared a bug in %s', message.guild.name));
+				channel:sendMessage(string.format('with the reason, %s', arg))
+				print(string.format('s.clearbug command was used by %s with the reason,', message.author.id))print(arg)
+				serverbug = 0
+			end
 		end
 	end
 	
@@ -99,7 +113,7 @@ client:on('messageCreate', function(message)
 	if cmd == (string.format(prefix .. 'info')) then
 		message.channel:sendMessage(string.format([[
 Hello, I am SmoreBot,
-I am a Discord Bot made with **Lua** using **Discordia**, I am developed by Chronomly6 and jdenderplays, with a js version being made by SpaceX and ROM Typo, also I am in %s servers.]], client.guildCount
+I am a Discord Bot made in **Lua** using **Discordia**, I am developed by Chronomly6 and jdenderplays, with a js version being made by SpaceX and ROM Typo, also I am in %s servers.]], client.guildCount
 ))
 		print(string.format('<info was used by %s', message.author.id))
 	end
