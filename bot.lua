@@ -70,7 +70,7 @@ client:on('messageCreate', function(message)
 --Bug Command
 	if cmd == (string.format(prefix .. 'bug')) then 
 		if serverbug == 1 then
-			message.channel:sendMessage('Someone already reported a bug in this server please wait for a dev to clear it.')
+			message.channel:sendMessage('Someone already reported a bug please wait for a dev to clear it.')
 		end
 		if serverbug == 0 then
 			message.channel:sendMessage('Bug reported. A helpful person will join your server to help soon')
