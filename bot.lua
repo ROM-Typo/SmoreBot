@@ -12,7 +12,6 @@ local f = io.open("DEFAULT_GAME", "rb")
 local game = string.gsub(content, "%s+", "")
     f:close()
 client:setGameName(game)
-	
 end)
 
 local f = io.open("PREFIX", "rb")
@@ -78,7 +77,7 @@ client:on('messageCreate', function(message)
 			local maxUses = 1
 			local maxAge = 1800 
 			local invite = message.channel:createInvite(maxAge, maxUses)
-			channel:sendMessage(string.format('<@&294883525881102336> , In %s', message.guild.name)); 
+			channel:sendMessage(string.format('In %s', message.guild.name)); 
 			channel:sendMessage(string.format(' User: %s reported:', message.author.username));
 			channel:sendMessage(arg);
 			channel:sendMessage('Invite: https://discord.gg/' .. invite.code)
@@ -134,7 +133,7 @@ s.quote - a quote from jdenderplays
 s.help - this message
 s.fail - insults you in DMs
 s.partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
-      {name = "Bot Info & <bug", value = [[
+      {name = "Bot Info & s.bug", value = [[
 s.join - some important links
 s.info - some info about the bot
 s.bug (the issue) - Reports a bug - help will come as soon as the team can.]], inline = true},
@@ -208,6 +207,7 @@ end
 		Fun Message Lite - a chill and chat server - discord.gg/hVDzyZd
 		FireTrap - A cool bot - https://discordapp.com/oauth2/authorize?client_id=278539150699790347&scope=bot&permissions=8
 		Single Helix - the server of DNA - https://discord.gg/hZGhcxJ
+		Irish Squad - "Come be potatoes with us" Jackraw 2017 - https://discord.gg/qBMuYrx
 		```
 		__`ShellShock`__
 		• With the shutdown of Helix, and me (ROM Typo) being a dev of it, I've decided to keep the bot alive for everyone.
