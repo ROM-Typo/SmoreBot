@@ -56,31 +56,37 @@ client:on('messageCreate', function(message)
 		if not embedmessage then noembedmsg = message.channel:sendMessage(luacode("pong")) end
 		if not embedmessage then noembedmsg.content = luacode("pong"..string.format(" - time taken: %.2fs", os.clock() - x)) end
 		if embedmessage then embedmessage.embed = {
-    		title = "pong",
+    		title = ":ping_pong: pong!",
 			description = string.format("time taken: %.2fs", os.clock() - x),
     		color = ccolor,
 			timestamp = os.date('!%Y-%m-%dT%H:%M:%S'),
+			footer = {text = message.author.name}
 		} end
 	end
     if cmd == (string.format(prefix .. 'smore')) then
         message.channel:sendMessage('https://www.poptarts.com/content/NorthAmerica/pop_tarts/en_US/pages/flavors/bakery/frosted-s-mores-toaster-pastries/jcr:content/productContent/par/responsiveimage.img.png/1475703429032.png')
-		print(string.format('<smore command was used by %s', message.author.id))
+		print(string.format('s.smore command was used by %s', message.author.id))
     end
 	
 	if cmd == (string.format(prefix .. 'meme')) then
-        message.channel:sendMessage('http://prntscr.com/ewxqgu')
-		print(string.format('<memez command was used by %s', message.author.id))
+        message.channel:sendMessage('https://i.imgflip.com/p4v25.jpg')
+		print(string.format('s.memez command was used by %s', message.author.id))
     end
 	
 	if cmd == (string.format(prefix .. 'quote')) then
         message.channel:sendMessage([[**fam i am a profeshanl factorio player**
 **automate EVRYTHING** -Jdenderplays 2017]])
-		print(string.format('<quote command was used by %s', message.author.id))
+		print(string.format('s.quote command was used by %s', message.author.id))
 	end
 	
 	if cmd == (string.format(prefix .. 'fail')) then
 		message.channel:sendMessage(string.format('%s, you clearly havent been burdened by the overobundence of education have you?', arg))
-		print(string.format('<fail command was used by %s', message.author.id))
+		print(string.format('s.fail command was used by %s', message.author.id))
+	end
+
+	if cmd == (string.format(prefix .. 'upvoteme')) then
+		message:addReaction("👍")
+		print(string.format('s.upvoteme command was used by %s', message.author.id))
 	end
 	
 --Bug Command
@@ -123,7 +129,7 @@ client:on('messageCreate', function(message)
 	if cmd == (string.format(prefix .. 'echo')) then
 	if arg == nil then return end
 		message.channel:sendMessage(arg)
-		print(string.format('<echo command was used by %s to say', message.author.id))print(arg)
+		print(string.format('s.echo command was used by %s to say', message.author.id))print(arg)
 	end
 	
 --Info Command
@@ -132,11 +138,11 @@ client:on('messageCreate', function(message)
 Hello, I am SmoreBot,
 I am a Discord Bot made in **Lua** using **Discordia**, I am developed by Chronomly6 and jdenderplays, with a js version being made by SpaceX and ROM Typo, also I am in %s servers.]], client.guildCount
 ))
-		print(string.format('<info was used by %s', message.author.id))
+		print(string.format('s.info was used by %s', message.author.id))
 	end
 	
 --Help Command
-	if cmd == '<@290228059599142913>' then
+	if cmd == 's.@290228059599142913>' then
 	message.channel:sendMessage('Help Sent! :mailbox_with_mail:')message.author:sendMessage{
   embed = {
     title = "Command List",
@@ -160,7 +166,7 @@ s.bug (the issue) - Reports a bug - help will come as soon as the team can.]], i
     timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
   }
 }
-		print(string.format('<help command was used by %s', message.author.id))
+		print(string.format('s.help command was used by %s', message.author.id))
     end	
 	
 	if cmd == (string.format(prefix .. 'help')) then
@@ -176,8 +182,9 @@ s.smore - shows you some poptarts
 s.quote - a quote from jdenderplays
 s.help - this message
 s.fail - insults you in DMs
-s.partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
-      {name = "Bot Info & <bug", value = [[
+s.partners - dm's you a list of discord servers partnered with SmoreBot!
+s.upvoteme - upvotes you]], inline = true},
+      {name = "Bot Info & s.bug", value = [[
 s.join - some important links
 s.info - some info about the bot
 s.bug (the issue) - Reports a bug - help will come as soon as the team can.]], inline = true},
@@ -187,7 +194,7 @@ s.bug (the issue) - Reports a bug - help will come as soon as the team can.]], i
     timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
   }
 }
-print(string.format('<help command was used by %s', message.author.id))
+print(string.format('s.help command was used by %s', message.author.id))
 end
 if cmd == (string.format(prefix .. 'help')) then
 		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
@@ -202,7 +209,6 @@ s.game - sets the bots playing status
 s.announce (text) - announces something in #announcecements
 s.leaveserver (id) - leaves the server
 s.update - grabs changes from github
-s.test> - a test>
 s.ban - what you think it does
 s.kick - what you think it does]], inline = true},
 	},
@@ -210,7 +216,7 @@ s.kick - what you think it does]], inline = true},
     timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
 	}
 	}
-	print(string.format('a dev used <help, known as %s', message.author.id))
+	print(string.format('a dev used s.help, known as %s', message.author.id))
 	end
 end
 --Partners Command
@@ -235,7 +241,7 @@ end
 		Join my server:
 		• http://discord.gg/ywBWwh6
 		]])
-		print(string.format('<partners command was used by %s', message.author.id, '/', message.author.username))
+		print(string.format('s.partners command was used by %s', message.author.id, '/', message.author.username))
     end	
 	
 --Bot Adding Info
@@ -256,31 +262,35 @@ end
     end
 
 --Dev Commands	
-	if cmd == (string.format(prefix .. 'test')) then
-	   message.channel:sendMessage("TEST COMMAND version #3\n Third time's a charm\nnvm it isn't #4\n test command v5")
-	end
-	
 	if cmd == (string.format(prefix .. 'kick')) then
     if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
-        local id = arg:match('<@!?([0-9]+)>')
+        local id = arg:match('s.@!?([0-9]+)>')
           if id then
 		  user = client:getUser(id)
             message.guild:kickUser(user)
             message.channel:sendMessage(string.format('SUMMONING THE KICK HAMMER ON: %s', id))
-            print(string.format('<kick command was used by %s', message.author.id))
+            print(string.format('s.kick command was used by %s', message.author.id))
 			end
+		end
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
+			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
+			print(string.format('%s tried to use s.kick', message.author.id)) 
 		end
     end
 	
 	if cmd == (string.format(prefix .. 'ban')) then
     if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
-        local id = arg:match('<@!?([0-9]+)>')
+        local id = arg:match('s.@!?([0-9]+)>')
           if id then
 		  user = client:getUser(id)
             message.guild:banUser(user)
             message.channel:sendMessage(string.format('SUMMONING THE BAN HAMMER ON: %s', id))
-            print(string.format('<ban command was used by %s', message.author.id))
+            print(string.format('s.ban command was used by %s', message.author.id))
 			end
+		end
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
+			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
+			print(string.format('%s tried to use s.ban', message.author.id)) 
 		end
 	end
 	
@@ -296,6 +306,10 @@ end
 		message.channel:sendMessage(":wave: grabbing from github!")
 		client:stop(true)
 		end
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
+			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
+			print(string.format('%s tried to use s.reboot', message.author.id)) 
+		end
 	end
 	
 	if cmd == (string.format(prefix .. 'leaveserver')) then
@@ -303,13 +317,25 @@ end
 		local guild = client:getGuild(arg)
 		guild:leave()
 		end
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
+			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
+			print(string.format('%s tried to use s.leaveserver', message.author.id))
+			print(arg)
+		end
 	end
 
 	if cmd == (string.format(prefix .. 'announce')) then 
-	if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
+		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 		local channel = client:getTextChannel("282977399761666059")
 		channel:sendMessage(string.format('**MESSAGE FROM THE DEV, %s**', message.author.username))channel:sendMessage(arg)
 		end
+		if cmd == (string.format(prefix .. 'announce')) then
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
+			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
+			print(string.format('%s tried to use s.announce to send', message.author.id))
+			print(arg)
+		end
+	end
 	end
 	
 	if cmd == (string.format(prefix .. 'sendall')) then
@@ -320,12 +346,22 @@ end
 		print('Message Sent to all servers')
 		end
 		end
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
+			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
+			print(string.format('%s tried to use s.sendall to send', message.author.id))
+			print(arg)
+		end
 	end
 	
 	if cmd == (string.format(prefix .. 'game')) then
 		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 			client:setGameName(arg)message.channel:sendMessage('Set "playing status" to:')message.channel:sendMessage(arg)
-			print('<game command was used')
+			print('s.game command was used')
+		end
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
+			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
+			print(string.format('%s tried to use s.game to set', message.author.id))
+			print(arg)
 		end
 	end
 	
@@ -333,6 +369,10 @@ end
 		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
 		message.channel:sendMessage(':wave: BRB!')
 		client:stop(true)
+		end
+		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
+			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
+			print(string.format('%s tried to use s.reboot', message.author.id)) 
 		end
 	end
 	
@@ -343,55 +383,12 @@ end
 			message.channel:sendMessage(guild.name)
 			end
 		end
-	end
-	
-	
-	if cmd == (string.format(prefix .. 'upvoteme')) then
-		if message.author.id == CHRONOMLY or message.author.id == ROMTYPO or message.author.id == JDENDER or message.author.id == SPACEX then
-			message:addReaction("👍")
-		end
-	end
-	
---If User is not dev
-	if cmd == (string.format(prefix .. 'game')) then
-		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
-			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
-			print(string.format('%s tried to use <game to set', message.author.id))
-			print(arg)
-		end
-	end
-	
-	if cmd == (string.format(prefix .. 'sendall')) then
-		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
-			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
-			print(string.format('%s tried to use <sendall to send', message.author.id))
-			print(arg)
-		end
-	end
-	
-	if cmd == (string.format(prefix .. 'reboot')) then
 		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
 			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
-			print(string.format('%s tried to use <reboot', message.author.id)) 
+			print(string.format('%s tried to use s.guildlist', message.author.id)) 
 		end
 	end
-	
-	if cmd == (string.format(prefix .. 'announce')) then
-		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
-			message.channel:sendMessage('```Error 404.5``````You do not have Role: Dev```')
-			print(string.format('%s tried to use <announce to send', message.author.id))
-			print(arg)
-		end
-	end
-	
-	if cmd == (string.format(prefix .. 'leaveserver')) then
-		if message.author.id ~= CHRONOMLY and message.author.id ~= ROMTYPO and message.author.id ~= JDENDER and message.author.id ~= SPACEX then
-			message.channel:sendMessage('```Error2.1``````You do not have Role: Dev```')
-			print(string.format('%s tried to use <leaveserver', message.author.id))
-			print(arg)
-		end
-	end
-	
+
 --Music 
 	if message.content == (string.format(prefix .. 'supported')) then
 		message.channel:sendMessage('```Chronomly has given up on music: please add ShellShock here:``` http://romtypo.com/bots/helix ```Or FireTrap here:``` https://goo.gl/SDbmyW')
