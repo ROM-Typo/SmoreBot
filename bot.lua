@@ -40,11 +40,28 @@ client:on('messageCreate', function(message)
 	local cmd, arg = message.content:match('(%S+)%s+(.*)')
 	cmd = cmd or message.content
 
-	if cmd == (string.format(prefix .. 'ping')) then 
-        message.channel:sendMessage(':ping_pong: pong!')
-		print(string.format('<ping command was used by %s', message.author.id))
+	if cmd == (string.format(prefix .. 'ping')) then
+		local x = os.clock()
+		local s = 0
+		for i=1,100000 do s = s + i end
+		local ccolor = discordia.Color(math.random(255), math.random(255), math.random(255)).value
+		local embedmessage = message.channel:sendMessage {
+  			embed = {
+    			title = ":ping_pong: pong!",
+    			color = ccolor,
+				timestamp = os.date('!%Y-%m-%dT%H:%M:%S'),
+				footer = {text = message.author.name}
+ 	 		}
+		}
+		if not embedmessage then noembedmsg = message.channel:sendMessage(luacode("pong")) end
+		if not embedmessage then noembedmsg.content = luacode("pong"..string.format(" - time taken: %.2fs", os.clock() - x)) end
+		if embedmessage then embedmessage.embed = {
+    		title = "pong",
+			description = string.format("time taken: %.2fs", os.clock() - x),
+    		color = ccolor,
+			timestamp = os.date('!%Y-%m-%dT%H:%M:%S'),
+		} end
 	end
-
     if cmd == (string.format(prefix .. 'smore')) then
         message.channel:sendMessage('https://www.poptarts.com/content/NorthAmerica/pop_tarts/en_US/pages/flavors/bakery/frosted-s-mores-toaster-pastries/jcr:content/productContent/par/responsiveimage.img.png/1475703429032.png')
 		print(string.format('<smore command was used by %s', message.author.id))
