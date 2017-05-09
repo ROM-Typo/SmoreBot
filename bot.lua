@@ -177,7 +177,10 @@ s.partners - dm's you a list of discord servers partnered with SmoreBot!]], inli
 s.join - some important links
 s.info - some info about the bot
 s.bug (the issue) - Reports a bug - help will come as soon as the team can.]], inline = true},
-      {name = "Music", value = "Sorry, cancelled", inline = true},
+      {name = "Music", value = "Sorry, really buggy", inline = true},
+	  {name = "Utility", value = [[
+		  s.google (your search) - searches google :face_palm:
+	  ]], inline = true},
     },
     color = discordia.Color(114, 137, 218).value,
     timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
