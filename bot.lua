@@ -63,6 +63,23 @@ client:on('messageCreate', function(message)
 			footer = {text = message.author.name}
 		} end
 	end
+
+	if cmd == (string.format(prefix .. 'google')) then
+		message.channel:sendMessage('Searching!')
+		text="https://www.google.com/search?q=" .. arg
+		search = (string.gsub(text, "%s+", '%%20'))
+		message.channel:sendMessage {
+  embed = {
+    title = ":satellite: Here are the results",
+    fields = {
+      {name = "URL:", value = search, inline = true},
+    },
+    color = discordia.Color(114, 137, 218).value,
+    timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
+  }
+}
+	end
+	
     if cmd == (string.format(prefix .. 'smore')) then
         message.channel:sendMessage('https://www.poptarts.com/content/NorthAmerica/pop_tarts/en_US/pages/flavors/bakery/frosted-s-mores-toaster-pastries/jcr:content/productContent/par/responsiveimage.img.png/1475703429032.png')
 		print(string.format('s.smore command was used by %s', message.author.id))
