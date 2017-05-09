@@ -191,7 +191,7 @@ s.bug (the issue) - Reports a bug - help will come as soon as the team can.]], i
 	
 	if cmd == (string.format(prefix .. 'help')) then
     message.channel:sendMessage('Help Sent! :mailbox_with_mail:')message.author:sendMessage{
-  embed = {
+   embed = {
     title = "Command List",
         fields = {
       {name = "Main Commands", value = [[
@@ -202,13 +202,15 @@ s.smore - shows you some poptarts
 s.quote - a quote from jdenderplays
 s.help - this message
 s.fail - insults you in DMs
-s.partners - dm's you a list of discord servers partnered with SmoreBot!
-s.upvoteme - upvotes you]], inline = true},
+s.partners - dm's you a list of discord servers partnered with SmoreBot!]], inline = true},
       {name = "Bot Info & s.bug", value = [[
 s.join - some important links
 s.info - some info about the bot
 s.bug (the issue) - Reports a bug - help will come as soon as the team can.]], inline = true},
-      {name = "Music", value = "Sorry, cancelled", inline = true},
+      {name = "Music", value = "Sorry, really buggy", inline = true},
+	  {name = "Utility", value = [[
+		  s.google (your search) - searches google :face_palm:
+	  ]], inline = true},
 	  },
     color = discordia.Color(114, 137, 218).value,
     timestamp = os.date('!%Y-%m-%dT%H:%M:%S')
