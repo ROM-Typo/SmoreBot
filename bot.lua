@@ -64,6 +64,10 @@ client:on('messageCreate', function(message)
 		} end
 	end
 
+		if cmd == (string.format(prefix .. 'donate')) then	
+			message.channel:sendMessage('Please donate to our host here: https://www.patreon.com/shellshock')
+print(string.format('woah someone is thing about donating known as %s', message.author.username))
+	end
 	if cmd == (string.format(prefix .. 'google')) then
 		message.channel:sendMessage('Searching!')
 		text="https://www.google.com/search?q=" .. arg
