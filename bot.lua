@@ -8,7 +8,7 @@ client:on('ready', function()
 		print(guild.name)
 end
 local f = io.open("DEFAULT_GAME", "rb")
-    local content = f:read("*all")
+    local content = f:read("*line")
 local game = string.gsub(content, "%s+", "")
     f:close()
 client:setGameName(game)
